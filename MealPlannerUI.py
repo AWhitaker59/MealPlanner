@@ -1,23 +1,35 @@
 import datetime
 from tkcalendar import Calendar
 from tkinter import *
-from csv import *
+import csv
 import random
 from calendar import monthrange
 
 
 def add_meal():
     """This function opens the window to add meals to the default .csv file"""
-    add_meal_window = Tk()
+
+    def append_new_meal():
+        """
+        This nested function appends the new meal typed in the entry in the add_meal window
+        to the meals.csv
+        """
+        with open('meals.csv', 'a', newline='') as meals:
+            writer = csv.writer(meals)
+            meal = [add_entry.get()]
+            writer.writerow(meal)
+        add_entry.delete(0,END)
+
+    add_meal_window = Toplevel()
     add_meal_window.title("Add Meal")
     add_meal_window.geometry("200x100")
     add_meal_window.resizable(False, False)
 
     add_label = Label(add_meal_window, text="Enter Meal Name:")
     add_label.grid(row=0, padx=40)
-    add_entry = Entry(add_meal_window,)
+    add_entry = Entry(add_meal_window)
     add_entry.grid(row=1, padx=40)
-    add_button = Button(add_meal_window, text="Add Meal")
+    add_button = Button(add_meal_window, text="Add Meal", command=append_new_meal)
     add_button.grid(row=2, padx=40)
 
     add_meal_window.mainloop()
@@ -95,7 +107,7 @@ class GUI:
     def save_month(self):
         """
         Saves the month to a .csv using the name typed into the entry
-        openable by Excel
+        opened in Excel
         """
 
     # TODO
@@ -114,7 +126,4 @@ class GUI:
         """
 
     # TODO
-    def append_new_meal(self):
-        """
 
-        """

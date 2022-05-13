@@ -46,7 +46,8 @@ def open_meals_spread():
     """
     os.system("start EXCEL.EXE meals.csv")
 
-def open_saved(self):
+
+def open_saved():
     """
     This function opens file explorer to the location where all previously saved
     months are located and allows the user to reopen that month in Excel.

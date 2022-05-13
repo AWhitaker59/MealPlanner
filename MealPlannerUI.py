@@ -72,7 +72,7 @@ class GUI:
         self.menu_bar.add_cascade(label="File", menu=self.subMenu)
         self.subMenu.add_command(label="Open Meal List", command=open_meals_spread)  # Calls "open_meals_list function from Controller
         self.subMenu.add_command(label="Add Meals", command=add_meal)                # Calls "add_meal" function from Controller
-        self.subMenu.add_command(label="Open Saved Month", command=self.open_saved)
+        self.subMenu.add_command(label="Open Saved Month", command=open_saved)
 
         # Calendar Initialization UI
         self.calendar_name_label = Label(self.planner, text="Enter new Calendar Name(Or save to default):")

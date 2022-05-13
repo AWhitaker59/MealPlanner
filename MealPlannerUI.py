@@ -18,7 +18,7 @@ def add_meal():
             writer = csv.writer(meals)
             meal = [add_entry.get()]
             writer.writerow(meal)
-        add_entry.delete(0,END)
+        add_entry.delete(0, END)
 
     add_meal_window = Toplevel()
     add_meal_window.title("Add Meal")
@@ -37,6 +37,9 @@ def add_meal():
 
 class GUI:
     def __init__(self, planner):
+        """
+        The below creates the entire GUI for the MealPlanner application
+        """
         # main window and initial variables
         self.save_name = None
         self.planner = planner
@@ -81,7 +84,7 @@ class GUI:
         month = month_year[0]
 
         #  Below loop creates a list of all meals in the meals.csv
-        with open('../Final Project/meals.csv', 'r') as meals:
+        with open('meals.csv', 'r') as meals:
             for line in meals:
                 line = line.rstrip()
                 meals_list.append(line)
@@ -118,12 +121,4 @@ class GUI:
         The Month opened should appear automatically on the Calendar.
         """
         print('nothing')
-
-    # TODO
-    def view_full_calendar(self):
-        """
-
-        """
-
-    # TODO
 

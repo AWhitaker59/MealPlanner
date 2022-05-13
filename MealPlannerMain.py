@@ -1,3 +1,4 @@
+# This app was an original idea of mine, with no reference. I'm sure better versions of it are out there...
 from MealPlannerUI import *
 
 
